@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let backgroundBlack = Color.black
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+        HStack {
+            VStack{
+                Text("Flow Score")
+                    .foregroundColor(Color.white)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 36))
+            }
+        }//Hstack
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(backgroundBlack.ignoresSafeArea())
+    }//:Body
+}//:View
 
 #Preview {
     ContentView()
