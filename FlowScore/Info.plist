@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inspiration-Regular.ttf</string>
+		<string>IrishGrover-Regular.ttf</string>
+		<string>Katibeh-Regular.ttf</string>
+		<string>Jomhuria-Regular.ttf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>ColorBackground</string>
+		<key>UIImageName</key>
+		<string>LoadingScreen2</string>
+	</dict>
+</dict>
+</plist>

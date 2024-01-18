@@ -8,18 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		BAEC6F382B581C4C00A9549A /* FlowScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F372B581C4C00A9549A /* FlowScoreApp.swift */; };
-		BAEC6F3A2B581C4C00A9549A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F392B581C4C00A9549A /* ContentView.swift */; };
+		BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F392B581C4C00A9549A /* CountryView.swift */; };
 		BAEC6F3C2B581C4E00A9549A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F3B2B581C4E00A9549A /* Assets.xcassets */; };
 		BAEC6F402B581C4E00A9549A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F3F2B581C4E00A9549A /* Preview Assets.xcassets */; };
+		BAEC6F482B58244000A9549A /* Jomhuria-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F472B58244000A9549A /* Jomhuria-Regular.ttf */; };
+		BAEC6F4A2B58246100A9549A /* Inspiration-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F492B58246100A9549A /* Inspiration-Regular.ttf */; };
+		BAEC6F4C2B58248500A9549A /* Katibeh-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F4B2B58248500A9549A /* Katibeh-Regular.ttf */; };
+		BAEC6F4E2B58249E00A9549A /* IrishGrover-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F4D2B58249E00A9549A /* IrishGrover-Regular.ttf */; };
+		BAEC6F512B582AE300A9549A /* PersoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F502B582AE300A9549A /* PersoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BAEC6F342B581C4C00A9549A /* FlowScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEC6F372B581C4C00A9549A /* FlowScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowScoreApp.swift; sourceTree = "<group>"; };
-		BAEC6F392B581C4C00A9549A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BAEC6F392B581C4C00A9549A /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		BAEC6F3B2B581C4E00A9549A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAEC6F3D2B581C4E00A9549A /* FlowScore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowScore.entitlements; sourceTree = "<group>"; };
 		BAEC6F3F2B581C4E00A9549A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BAEC6F472B58244000A9549A /* Jomhuria-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jomhuria-Regular.ttf"; sourceTree = "<group>"; };
+		BAEC6F492B58246100A9549A /* Inspiration-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inspiration-Regular.ttf"; sourceTree = "<group>"; };
+		BAEC6F4B2B58248500A9549A /* Katibeh-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Katibeh-Regular.ttf"; sourceTree = "<group>"; };
+		BAEC6F4D2B58249E00A9549A /* IrishGrover-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IrishGrover-Regular.ttf"; sourceTree = "<group>"; };
+		BAEC6F4F2B5824B300A9549A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BAEC6F502B582AE300A9549A /* PersoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +63,11 @@
 		BAEC6F362B581C4C00A9549A /* FlowScore */ = {
 			isa = PBXGroup;
 			children = (
+				BAEC6F4F2B5824B300A9549A /* Info.plist */,
+				BAEC6F462B58241800A9549A /* Font */,
 				BAEC6F372B581C4C00A9549A /* FlowScoreApp.swift */,
-				BAEC6F392B581C4C00A9549A /* ContentView.swift */,
+				BAEC6F392B581C4C00A9549A /* CountryView.swift */,
+				BAEC6F502B582AE300A9549A /* PersoView.swift */,
 				BAEC6F3B2B581C4E00A9549A /* Assets.xcassets */,
 				BAEC6F3D2B581C4E00A9549A /* FlowScore.entitlements */,
 				BAEC6F3E2B581C4E00A9549A /* Preview Content */,
@@ -67,6 +81,17 @@
 				BAEC6F3F2B581C4E00A9549A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BAEC6F462B58241800A9549A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				BAEC6F4D2B58249E00A9549A /* IrishGrover-Regular.ttf */,
+				BAEC6F4B2B58248500A9549A /* Katibeh-Regular.ttf */,
+				BAEC6F492B58246100A9549A /* Inspiration-Regular.ttf */,
+				BAEC6F472B58244000A9549A /* Jomhuria-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,8 +152,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEC6F4C2B58248500A9549A /* Katibeh-Regular.ttf in Resources */,
 				BAEC6F402B581C4E00A9549A /* Preview Assets.xcassets in Resources */,
 				BAEC6F3C2B581C4E00A9549A /* Assets.xcassets in Resources */,
+				BAEC6F4A2B58246100A9549A /* Inspiration-Regular.ttf in Resources */,
+				BAEC6F4E2B58249E00A9549A /* IrishGrover-Regular.ttf in Resources */,
+				BAEC6F482B58244000A9549A /* Jomhuria-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEC6F3A2B581C4C00A9549A /* ContentView.swift in Sources */,
+				BAEC6F512B582AE300A9549A /* PersoView.swift in Sources */,
+				BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */,
 				BAEC6F382B581C4C00A9549A /* FlowScoreApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +304,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowScore/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -312,6 +343,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlowScore/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

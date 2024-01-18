@@ -11,7 +11,7 @@ import SwiftUI
 struct FlowScoreApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(countries: CountryList.previewCountry)
         }
     }
 }
