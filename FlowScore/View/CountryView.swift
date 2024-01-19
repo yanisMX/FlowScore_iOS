@@ -7,25 +7,14 @@
 
 import SwiftUI
 
-
-
-
-extension Color {
-    static var customBlue: Color{
-        return Color(
-            red : Double(0x11) / 255.0,
-            green : Double(0x25) / 255.0,
-            blue: Double(0xD8) / 255.0
-        )
-    }
-}
-
-
-struct ContentView: View {
+struct CountriesView: View {
+    
+    
 //    MARK : PROPERTIES
-    let countries : [CountryList]
-    
-    
+    @StateObject var countriesModel = CountriesModel()
+    @State var searchCountry = ""
+    @State var selectedCountry = ""
+    @State var isOn = false
     let columns: [GridItem] = [
             GridItem(.flexible(), spacing: 16),
             GridItem(.flexible(), spacing: 16)
@@ -37,48 +26,72 @@ struct ContentView: View {
     
 //    MARK : BODY
     var body: some View {
-        VStack {
-            Text("Select Country") .font(Font.custom("Inspiration", size:50))
-                .foregroundColor(.white)
-                .offset(y:-75)
-        
-            LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(countries) { country in
-                                VStack {
-                                    
-                                    Image(country.country_logo)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .shadow(radius: 5)
-                                        .frame(maxWidth: 100, maxHeight: 100)
-                                    Text(country.country_name)
-                                        .font(Font.custom("Jomhuria", size:50))
-                                        .foregroundColor(.white)
-                                        .offset(y:-20)
-                                    Button(action: {}, label: {
-                                        Text("Select")
-                                            .font(Font.custom("Katibeh", size:25))
-                                            .offset(y:5)
-                                            .multilineTextAlignment(.center)
-                                            .frame(width:100, height:30)
-                                            .background(.white)
-                                            .clipShape(Capsule())
-                                            .foregroundColor(.black)
-                                            
-                                    })
-                                    .offset(y:-50)
+            NavigationStack {
+                VStack{
+                
+                Text("Select Country")
+                    .font(Font.custom("Inspiration", size: 50))
+                    .foregroundColor(.white)
+                    
+                    TextField("Search country", text: $searchCountry)
+                        .padding(10)
+                        .background(Color(.systemGray6))
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                        .offset(y:-10)
+                
+                ScrollView{
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(countriesModel.countries.filter{
+                            country in searchCountry.isEmpty || country.country_name.localizedCaseInsensitiveContains(searchCountry)
+                        }) { country in
+                            VStack {
+                                AsyncImage(url: URL(string: country.country_logo)){
+                                    logo in logo.resizable()
+                                } placeholder: {
+                                    ProgressView()
                                 }
-                            }
-                        }
+                                .aspectRatio(contentMode: .fit)
+                                .shadow(radius: 5)
+                                .frame(maxWidth: 100, maxHeight: 100)
+                                
+                                Text(country.country_name)
+                                    .font(Font.custom("Jomhuria", size: 50))
+                                    .foregroundColor(.white)
+                                    .offset(y: -20)
+                                
+                                
+                                
+                                NavigationLink(destination: LeagueView(country:country)){
+                                    Text("Select")
+                                        .font(Font.custom("Katibeh", size: 25))
+                                        .offset(y: 5)
+                                        .multilineTextAlignment(.center)
+                                        .frame(width: 100, height: 30)
+                                        .background(Color.white)
+                                        .clipShape(Capsule())
+                                        .foregroundColor(.black)
+                                }
+                                .offset(y: -50)
+                            } // :VStack
+                            .padding(5)
+                            
+                        }// :ForEach
+                    }// :LazyVGrid
+                }// :ScrollView
+                }// :VStack
+                .background(backgroundBlack)
+            }// : NavigationStack
             
-        }//VSTACK
-        
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(backgroundBlack.ignoresSafeArea())
-        
-    }//:BODY
+            .task {
+                await countriesModel.fetchDataCountries()
+            } // : task
+
+    }
 }//:VIEW
 
+
+
 #Preview {
-    ContentView(countries: CountryList.previewCountry)
+    CountriesView()
 }
+
