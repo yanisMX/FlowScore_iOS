@@ -25,20 +25,168 @@ struct MatchEventView: View {
                 ScrollView {
                     
                     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                  
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 400, height: 300)
+                            .foregroundColor(.white)
+                        
+                        Rectangle()
+                            .frame(width: 390, height: 295)
+                            .foregroundColor(.green)
+                        
+                        Circle()
+                            .frame(width: 100)
+                            .foregroundColor(.white)
+                        
+                        Circle()
+                            .frame(width: 95)
+                            .foregroundColor(.green)
+                        
+                        Rectangle()
+                            .frame(width: 3, height: 300)
+                            .foregroundColor(.white)
+                    
+                        ZStack {
+                            HStack {
+                                Rectangle()
+                                    .frame(width: 70, height: 160)
+                                    .foregroundColor(.white)
+                                
+                                Spacer()
+                                
+                                Rectangle()
+                                    .frame(width: 70, height: 160)
+                                    .foregroundColor(.white)
+                            } //: HSTACK
+                            
+                            HStack {
+                                ZStack{
+                                    Rectangle()
+                                        .frame(width: 68, height: 157)
+                                        .foregroundColor(.green)
+                                    
+                                    Image("maillotext")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30, height: 30)
+                                        .offset(x:-10)
+                                }
+                                
+                                Spacer()
+                                
+                                ZStack{
+                                    Rectangle()
+                                        .frame(width: 68, height: 157)
+                                        .foregroundColor(.green)
+                                    
+                                    Image("mailotdom")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30, height: 30)
+                                        .offset(x:10)
+                                    
+                                }
+                                
+                            } //: HSTACK
+                            
+                            
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("maillotext")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:-130)
+                            
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("maillotext")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:-90)
+
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("maillotext")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:-55)
+
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("maillotext")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:-20)
+                            
+                            
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("mailotdom")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:130)
+                            
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("mailotdom")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:90)
+
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("mailotdom")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:55)
+
+                            ForEach(1..<7) { index in
+                                let yOffset = CGFloat(index * 50 - 175)
+                                
+                                Image("mailotdom")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30, height: 30)
+                                    .offset(x: 0, y: yOffset)
+                            }.offset(x:20)
+                            
+                            
+                            
+                        } //: ZSTACK
+                    } //: ZSTACK
                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    ForEach(matchesModel.matches) { match in
+                   ForEach(matchesModel.matches) { match in
                         
                         // INITIALISATION POUR COMPO//
-                        let system_away = match.match_awayteam_system
-                        var numberOfDefenders = 0
+                     //   let system = match.match.awayteam_system
+                       // var numberOfDefenders = 0
 
-                        
-                        if let defenderCount = system.components(separatedBy: "-").first,
-                           let count = Int(defenderCount) {
-                            numberOfDefenders = count
-                        }                        
-                //////////////////////////////////////////////////////////
+                        // Analyser la chaîne de système pour obtenir le nombre de défenseurs
+                        //if let defenderCount = system.components(separatedBy: "-").first,
+                          // let count = Int(defenderCount) {
+                            //numberOfDefenders = count
+                        //}                        //////////////////////////////////////////////////////////
                         
                         
                         VStack {
@@ -80,157 +228,26 @@ struct MatchEventView: View {
                                             .foregroundColor(.white)
                                     }
                                     .popover(isPresented: $isShowingPopover, content: {
-                                        ZStack {
-                                            Rectangle()
-                                                .frame(width: 400, height: 300)
-                                                .foregroundColor(.white)
-                                            
-                                            Rectangle()
-                                                .frame(width: 390, height: 295)
-                                                .foregroundColor(.green)
-                                            
-                                            Circle()
-                                                .frame(width: 100)
-                                                .foregroundColor(.white)
-                                            
-                                            Circle()
-                                                .frame(width: 95)
-                                                .foregroundColor(.green)
-                                            
-                                            Rectangle()
-                                                .frame(width: 3, height: 300)
-                                                .foregroundColor(.white)
-                                        
-                                            ZStack {
-                                                HStack {
-                                                    Rectangle()
-                                                        .frame(width: 70, height: 160)
-                                                        .foregroundColor(.white)
-                                                    
-                                                    Spacer()
-                                                    
-                                                    Rectangle()
-                                                        .frame(width: 70, height: 160)
-                                                        .foregroundColor(.white)
-                                                } //: HSTACK
-                                                
-                                                HStack {
-                                                    ZStack{
-                                                        Rectangle()
-                                                            .frame(width: 68, height: 157)
-                                                            .foregroundColor(.green)
-                                                        
-                                                        Image("maillotext")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x:-10)
-                                                    }
-                                                    
-                                                    Spacer()
-                                                    
-                                                    ZStack{
-                                                        Rectangle()
-                                                            .frame(width: 68, height: 157)
-                                                            .foregroundColor(.green)
-                                                        
-                                                        Image("mailotdom")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x:10)
-                                                        
-                                                    }
-                                                    
-                                                } //: HSTACK
-                                                
-                                                
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("maillotext")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:-130)
-                                                
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("maillotext")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:-90)
-
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("maillotext")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:-55)
-
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("maillotext")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:-20)
-                                                
-                                                
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("mailotdom")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:130)
-                                                
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("mailotdom")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:90)
-
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("mailotdom")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:55)
-
-                                                ForEach(1..<7) { index in
-                                                    let yOffset = CGFloat(index * 50 - 175)
-                                                    
-                                                    Image("mailotdom")
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fit)
-                                                        .frame(width: 30, height: 30)
-                                                        .offset(x: 0, y: yOffset)
-                                                }.offset(x:20)
-                                                
-                                                
-                                                
-                                            } //: ZSTACK
-                                            
-                                        } //: ZSTACK
+                                        VStack{
+                                            ZStack{
+                                                Rectangle().frame(width: 400,height:300).foregroundColor(.white)
+                                                Rectangle().frame(width: 390 , height: 295).foregroundColor(.green)
+                                                Circle().frame(width: 100).foregroundColor(.white)
+                                                Circle().frame(width:95).foregroundColor(.green)
+                                                Rectangle().frame(width:3,height: 300).foregroundColor(.white)
+                                                ZStack{
+                                                    HStack{
+                                                        Rectangle().frame(width: 70,height: 160).foregroundColor(.white)
+                                                        Spacer()
+                                                        Rectangle().frame(width: 70,height: 160).foregroundColor(.white)
+                                                    }//:HSTACK
+                                                    HStack{
+                                                        Rectangle().frame(width: 68,height: 157).foregroundColor(.green)
+                                                        Spacer()
+                                                        Rectangle().frame(width: 68,height: 157).foregroundColor(.green)
+                                                    }//:HSTACK
+                                                }//:ZSTACK
+                                            }//:ZSTACK
                                             Spacer()
                                             // Code ici
                                             HStack{
@@ -255,7 +272,7 @@ struct MatchEventView: View {
                                         .background(Color.black)
                                         .cornerRadius(10)
                                         .padding()
-                                             };))
+                                    })
                                     
                                 } // :VSTACK
                             } label: {
