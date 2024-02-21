@@ -10,9 +10,17 @@ import Foundation
 class MatchEventsModel: ObservableObject {
     
     @Published var matches = [MatchEventList] ()
+     var URLkey = "f7417cd8d5b9eb3f04494ab54cb43d65f455839fd18839caef1a9205e96a7562"
+
+    let format = DateFormatter()
 
     func fetchDataMatchs(selectedLeague leagueId: String) async {
-        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_events&from=2024-01-18&to=2024-01-18&league_id=\(leagueId)&APIkey=7bc8fa479f995fd249bc72bfc0344c87b0ed2aecd03123167b9017c91278b6fa") else {
+        
+        format.dateFormat = "yyyy-MM-dd"
+        let currentDate = format.string(from: Date())
+        
+        
+        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_events&from=\(currentDate)&to=\(currentDate)&league_id=\(leagueId)&APIkey=\(URLkey)") else {
             print("URL invalid")
             return
         }

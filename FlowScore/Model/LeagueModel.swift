@@ -10,9 +10,9 @@ import Foundation
 class LeaguesModel: ObservableObject {
     
     @Published var leagues = [LeaguesList] ()
-
+    var URLKey = "f7417cd8d5b9eb3f04494ab54cb43d65f455839fd18839caef1a9205e96a7562"
     func fetchDataLeagues(selectedCountry countryId: String) async {
-        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_leagues&country_id=\(countryId)&APIkey=7bc8fa479f995fd249bc72bfc0344c87b0ed2aecd03123167b9017c91278b6fa") else {
+        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_leagues&country_id=\(countryId)&APIkey=\(URLKey)") else {
             print("URL invalid")
             return
         }

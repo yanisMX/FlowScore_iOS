@@ -9,91 +9,294 @@ import SwiftUI
 
 struct MatchEventView: View {
     
-// MARK : PROPERTIES
     @StateObject var matchesModel = MatchEventsModel()
-
-    let league : LeaguesList
+    @State private var isShowingPopover = false
     
+    let league: LeaguesList
     let backgroundBlack = Color.black
-    let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
-    ]
     
-    
-    
-// MARK : BODY
     var body: some View {
         NavigationStack {
             VStack {
                 Text("Matchs du jour")
                     .font(Font.custom("Inspiration", size: 50))
                     .foregroundColor(.white)
-                    
                 
                 ScrollView {
+                    
+                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                  
+               ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ForEach(matchesModel.matches) { match in
+                        
+                        // INITIALISATION POUR COMPO//
+                        let system_away = match.match_awayteam_system
+                        var numberOfDefenders = 0
+
+                        
+                        if let defenderCount = system.components(separatedBy: "-").first,
+                           let count = Int(defenderCount) {
+                            numberOfDefenders = count
+                        }                        
+                //////////////////////////////////////////////////////////
+                        
+                        
                         VStack {
                             DisclosureGroup {
-                                Text("Test")
-                                
+                                VStack{
+                                    HStack {
+                                        VStack{
+                                            ForEach(match.lineup.home.starting_lineups) { lineup in
+                                                HStack {
+                                                    
+                                                    Text(lineup.lineup_player).font(.system(size:15))
+                                                    Spacer()
+                                                    Text(lineup.lineup_number)
+                                                }
+                                                .foregroundColor(.white)
+                                                
+                                            }
+                                        }
+                                        VStack{
+                                            ForEach(match.lineup.away.starting_lineups) { lineup in
+                                                HStack {
+                                                    Text(lineup.lineup_number)
+                                                    Spacer()
+                                                    Text(lineup.lineup_player).font(.system(size:15))
+                                                }
+                                                .foregroundColor(.white)
+                                            }// Foreach 2
+                                        } // Vstack
+                                    } // :HSTACK
+                                    Button(action: {
+                                        isShowingPopover = true
+                                    }) {
+                                        Text("Voir + de détails")
+                                            .font(.system(size: 15))
+                                            .multilineTextAlignment(.center)
+                                            .frame(width: 200, height: 20)
+                                            .background(Color.blue)
+                                            .clipShape(Capsule())
+                                            .foregroundColor(.white)
+                                    }
+                                    .popover(isPresented: $isShowingPopover, content: {
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(width: 400, height: 300)
+                                                .foregroundColor(.white)
+                                            
+                                            Rectangle()
+                                                .frame(width: 390, height: 295)
+                                                .foregroundColor(.green)
+                                            
+                                            Circle()
+                                                .frame(width: 100)
+                                                .foregroundColor(.white)
+                                            
+                                            Circle()
+                                                .frame(width: 95)
+                                                .foregroundColor(.green)
+                                            
+                                            Rectangle()
+                                                .frame(width: 3, height: 300)
+                                                .foregroundColor(.white)
+                                        
+                                            ZStack {
+                                                HStack {
+                                                    Rectangle()
+                                                        .frame(width: 70, height: 160)
+                                                        .foregroundColor(.white)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Rectangle()
+                                                        .frame(width: 70, height: 160)
+                                                        .foregroundColor(.white)
+                                                } //: HSTACK
+                                                
+                                                HStack {
+                                                    ZStack{
+                                                        Rectangle()
+                                                            .frame(width: 68, height: 157)
+                                                            .foregroundColor(.green)
+                                                        
+                                                        Image("maillotext")
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fit)
+                                                            .frame(width: 30, height: 30)
+                                                            .offset(x:-10)
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    ZStack{
+                                                        Rectangle()
+                                                            .frame(width: 68, height: 157)
+                                                            .foregroundColor(.green)
+                                                        
+                                                        Image("mailotdom")
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fit)
+                                                            .frame(width: 30, height: 30)
+                                                            .offset(x:10)
+                                                        
+                                                    }
+                                                    
+                                                } //: HSTACK
+                                                
+                                                
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("maillotext")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:-130)
+                                                
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("maillotext")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:-90)
+
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("maillotext")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:-55)
+
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("maillotext")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:-20)
+                                                
+                                                
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("mailotdom")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:130)
+                                                
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("mailotdom")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:90)
+
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("mailotdom")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:55)
+
+                                                ForEach(1..<7) { index in
+                                                    let yOffset = CGFloat(index * 50 - 175)
+                                                    
+                                                    Image("mailotdom")
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fit)
+                                                        .frame(width: 30, height: 30)
+                                                        .offset(x: 0, y: yOffset)
+                                                }.offset(x:20)
+                                                
+                                                
+                                                
+                                            } //: ZSTACK
+                                            
+                                        } //: ZSTACK
+                                            Spacer()
+                                            // Code ici
+                                            HStack{
+                                                Text(match.match_hometeam_score)
+                                                    .foregroundColor(match.match_hometeam_score > match.match_awayteam_score ? .green : .white)
+                                                Text("-")
+                                                Text(match.match_awayteam_score)
+                                                    .foregroundColor(match.match_awayteam_score > match.match_hometeam_score ? .green : .white)
+                                                
+                                            }
+                                            .foregroundColor(.white)
+                                            .fontWeight(.bold)
+                                            .font(.system(size: 38))
+                                            VStack{
+                                                Text("to be continued")
+                                            }
+                                            .foregroundColor(.white)
+                                            
+                                            Spacer()
+                                        }//:VSTACK
+                                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                                        .background(Color.black)
+                                        .cornerRadius(10)
+                                        .padding()
+                                             };))
+                                    
+                                } // :VSTACK
                             } label: {
-                                HStack{
-                                    VStack{
+                                HStack {
+                                    VStack {
                                         Text(
                                             match.match_live == "1" ?
-                                            match.match_status+"'" :
-                                            match.match_time
-                                        )
-                                    }//:Vstack
-                                }//:Hstack
-                                VStack (alignment: .leading) {
-                                    HStack (alignment: .top)
-                                    {AsyncImage(url: URL(string: match.team_home_badge)){ logo in
-                                        logo.resizable()
-                                            
-                                        
-                                    } 
-                                    
-                                    
-                                    placeholder: {
-                                        ProgressView()
+                                            match.match_status + "'" :
+                                                match.match_time
+                                        ).foregroundStyle(Color.white)
                                     }
-                                    
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 20, maxHeight: 20)
-                                    
-                                        
-                                        Text(match.match_hometeam_name)
-                                        Spacer()
-                                        Text(match.match_hometeam_score)
-                                        
-                                            
-                                    }//:HStack
-                                    
-                                    
-                                    HStack{
-                                        AsyncImage(url: URL(string: match.team_away_badge)){ logo in
-                                            logo.resizable()
-                                            
+                                }
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .top) {
+                                        AsyncImage(url: URL(string: match.team_home_badge))
+                                        {
+                                            image in image.resizable()
                                         } placeholder: {
                                             ProgressView()
-                                        }
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 20, maxHeight: 20)
+                                        }                                            .frame(maxWidth: 20, maxHeight: 20)
                                         
-                                        Text(match.match_awayteam_name)
+                                        Text(match.match_hometeam_name).foregroundStyle(Color.white)
                                         Spacer()
-                                        Text(match.match_awayteam_score)
+                                        Text(match.match_hometeam_score)
+                                            .foregroundStyle(Color.white)
+                                    }
+                                    
+                                    HStack {
+                                        AsyncImage(url: URL(string: match.team_away_badge))
+                                        {
+                                            image in image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }                                        .frame(maxWidth: 20, maxHeight: 20)
                                         
-                                        
-                                    }//:HStack
-
-                                }//:VSTACK
-                                
-                                
+                                        Text(match.match_awayteam_name).foregroundStyle(Color.white)
+                                        Spacer()
+                                        Text(match.match_awayteam_score).foregroundStyle(Color.white)
+                                    }
+                                }
                             }
-                            .foregroundColor(.white)
                             .padding()
                             .cornerRadius(10)
                             .padding(.horizontal, 20)
@@ -103,21 +306,19 @@ struct MatchEventView: View {
                         }
                     }
                 }
-
-            }//: VStack
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            }
+            .frame(maxWidth: .infinity)
             .background(backgroundBlack)
-        }//: NavigationStack
-        .task {
-            await matchesModel.fetchDataMatchs(selectedLeague: league.league_id )
         }
-    }//:BODY
-}//:VIEW
+        .task {
+            await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
+        }
+    }
+}
 
 
-
-// MARK : PREVIEW
+// MARK: PREVIEW
 #Preview {
-    MatchEventView(league:LeaguesList.previewLeagues)
+    MatchEventView(league: LeaguesList.previewLeagues)
 }
 

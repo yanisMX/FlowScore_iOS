@@ -11,9 +11,10 @@ import Foundation
 class CountriesModel: ObservableObject {
     
     @Published var countries = [CountryList] ()
+    var URLKey = "f7417cd8d5b9eb3f04494ab54cb43d65f455839fd18839caef1a9205e96a7562"
 
     func fetchDataCountries() async {
-        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_countries&APIkey=7bc8fa479f995fd249bc72bfc0344c87b0ed2aecd03123167b9017c91278b6fa") else{
+        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_countries&APIkey=\(URLKey)") else{
             print("URL invalid")
             return
         }

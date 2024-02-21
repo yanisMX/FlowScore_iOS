@@ -10,6 +10,12 @@
 		BABAE02A2B5931A400280180 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0292B5931A400280180 /* CountryData.swift */; };
 		BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02B2B59320A00280180 /* PrincipalColor.swift */; };
 		BABAE02F2B59327E00280180 /* FontData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02E2B59327E00280180 /* FontData.swift */; };
+		BABAE0312B59386A00280180 /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0302B59386A00280180 /* LeagueView.swift */; };
+		BABAE0352B5957C000280180 /* CountriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0342B5957C000280180 /* CountriesModel.swift */; };
+		BABAE0372B596B8700280180 /* LeagueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0362B596B8700280180 /* LeagueModel.swift */; };
+		BABAE0392B596BD400280180 /* LeagueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0382B596BD400280180 /* LeagueData.swift */; };
+		BABAE03B2B596CEA00280180 /* MatchEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE03A2B596CEA00280180 /* MatchEventView.swift */; };
+		BABAE03F2B596F9100280180 /* MatchEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE03E2B596F9100280180 /* MatchEventData.swift */; };
 		BAEC6F382B581C4C00A9549A /* FlowScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F372B581C4C00A9549A /* FlowScoreApp.swift */; };
 		BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F392B581C4C00A9549A /* CountryView.swift */; };
 		BAEC6F3C2B581C4E00A9549A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F3B2B581C4E00A9549A /* Assets.xcassets */; };
@@ -18,13 +24,19 @@
 		BAEC6F4A2B58246100A9549A /* Inspiration-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F492B58246100A9549A /* Inspiration-Regular.ttf */; };
 		BAEC6F4C2B58248500A9549A /* Katibeh-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F4B2B58248500A9549A /* Katibeh-Regular.ttf */; };
 		BAEC6F4E2B58249E00A9549A /* IrishGrover-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAEC6F4D2B58249E00A9549A /* IrishGrover-Regular.ttf */; };
-		BAEC6F512B582AE300A9549A /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6F502B582AE300A9549A /* LeagueView.swift */; };
+		BAF7CDE82B5A726200B43154 /* MatchEventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF7CDE72B5A726200B43154 /* MatchEventsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BABAE0292B5931A400280180 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		BABAE02B2B59320A00280180 /* PrincipalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalColor.swift; sourceTree = "<group>"; };
 		BABAE02E2B59327E00280180 /* FontData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontData.swift; sourceTree = "<group>"; };
+		BABAE0302B59386A00280180 /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
+		BABAE0342B5957C000280180 /* CountriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesModel.swift; sourceTree = "<group>"; };
+		BABAE0362B596B8700280180 /* LeagueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueModel.swift; sourceTree = "<group>"; };
+		BABAE0382B596BD400280180 /* LeagueData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueData.swift; sourceTree = "<group>"; };
+		BABAE03A2B596CEA00280180 /* MatchEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEventView.swift; sourceTree = "<group>"; };
+		BABAE03E2B596F9100280180 /* MatchEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEventData.swift; sourceTree = "<group>"; };
 		BAEC6F342B581C4C00A9549A /* FlowScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEC6F372B581C4C00A9549A /* FlowScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowScoreApp.swift; sourceTree = "<group>"; };
 		BAEC6F392B581C4C00A9549A /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
@@ -36,7 +48,7 @@
 		BAEC6F4B2B58248500A9549A /* Katibeh-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Katibeh-Regular.ttf"; sourceTree = "<group>"; };
 		BAEC6F4D2B58249E00A9549A /* IrishGrover-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IrishGrover-Regular.ttf"; sourceTree = "<group>"; };
 		BAEC6F4F2B5824B300A9549A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		BAEC6F502B582AE300A9549A /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
+		BAF7CDE72B5A726200B43154 /* MatchEventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEventsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				BAEC6F392B581C4C00A9549A /* CountryView.swift */,
-				BAEC6F502B582AE300A9549A /* LeagueView.swift */,
+				BABAE0302B59386A00280180 /* LeagueView.swift */,
+				BABAE03A2B596CEA00280180 /* MatchEventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -62,6 +75,9 @@
 		BABAE0272B59313500280180 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BABAE0342B5957C000280180 /* CountriesModel.swift */,
+				BABAE0362B596B8700280180 /* LeagueModel.swift */,
+				BAF7CDE72B5A726200B43154 /* MatchEventsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -72,6 +88,8 @@
 				BABAE0292B5931A400280180 /* CountryData.swift */,
 				BABAE02B2B59320A00280180 /* PrincipalColor.swift */,
 				BABAE02E2B59327E00280180 /* FontData.swift */,
+				BABAE0382B596BD400280180 /* LeagueData.swift */,
+				BABAE03E2B596F9100280180 /* MatchEventData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -201,12 +219,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABAE0372B596B8700280180 /* LeagueModel.swift in Sources */,
+				BAF7CDE82B5A726200B43154 /* MatchEventsModel.swift in Sources */,
 				BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */,
-				BAEC6F512B582AE300A9549A /* LeagueView.swift in Sources */,
+				BABAE0312B59386A00280180 /* LeagueView.swift in Sources */,
 				BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */,
+				BABAE0352B5957C000280180 /* CountriesModel.swift in Sources */,
+				BABAE0392B596BD400280180 /* LeagueData.swift in Sources */,
 				BABAE02A2B5931A400280180 /* CountryData.swift in Sources */,
+				BABAE03F2B596F9100280180 /* MatchEventData.swift in Sources */,
 				BABAE02F2B59327E00280180 /* FontData.swift in Sources */,
 				BAEC6F382B581C4C00A9549A /* FlowScoreApp.swift in Sources */,
+				BABAE03B2B596CEA00280180 /* MatchEventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
