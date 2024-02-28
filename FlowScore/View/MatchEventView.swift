@@ -31,8 +31,7 @@ struct MatchEventView: View {
                             VStack {
                                 DisclosureGroup {
                                     VStack{
-                                        
-                                        VStack {
+                                                                                VStack {
                                             let allScorers = match.goalscorer.filter { $0.home_scorer != "" || $0.away_scorer != "" }
                                             let sortedScorers = allScorers.sorted { $0.time < $1.time }
                                             
@@ -262,7 +261,7 @@ struct MatchEventView: View {
                                                             )
                                                             .fontWeight(.bold)
                                                             .font(.system(size: 18))
-                                                        
+                                                        Text(league.league_id)
                                                         VStack(alignment: .leading) {
                                                             ForEach(match.lineup.away.starting_lineups) { lineup in
                                                                 
@@ -313,17 +312,26 @@ struct MatchEventView: View {
                                         }
                                         
                                         HStack {
-                                            AsyncImage(url: URL(string: match.team_away_badge))
-                                            {
-                                                image in image.resizable()
+                                           
+                                            AsyncImage(url: URL(string: match.team_away_badge)) { image in
+                                                image.resizable()
                                             } placeholder: {
                                                 ProgressView()
-                                            }                                        .frame(maxWidth: 20, maxHeight: 20)
-                                            
-                                            Text(match.match_awayteam_name).foregroundStyle(Color.white)
+                                            }
+                                            .frame(maxWidth: 20, maxHeight: 20)
+
+                                            Text(match.match_awayteam_name)
+                                                .foregroundStyle(Color.white)
+
                                             Spacer()
-                                            Text(match.match_awayteam_score).foregroundStyle(Color.white)
+
+                                            Text(match.match_awayteam_score)
+                                                .foregroundStyle(Color.white)
                                         }
+
+
+
+
                                     }
                                 }
                                 .padding()

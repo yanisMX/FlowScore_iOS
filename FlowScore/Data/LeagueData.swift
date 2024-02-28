@@ -35,7 +35,7 @@ struct LeaguesList: Codable, Identifiable {
 
 extension LeaguesList {
     static let previewLeagues:   LeaguesList =
-    LeaguesList(country_id: "6", country_name: "Espagne",country_logo: "espagne", league_id: "168", league_name: "Copa del Rey", league_season: "2023/2024",league_logo: "espagne")
+    LeaguesList(country_id: "6", country_name: "Espagne",country_logo: "espagne", league_id: "164", league_name: "Copa del Rey", league_season: "2023/2024",league_logo: "espagne")
 }
 
 
