@@ -67,6 +67,7 @@ struct MatchEventView: View {
                                     Button(action: {
                                         isShowingPopover = true
                                     }) {
+                                        Text(match.match_id)
                                         Text("Voir + de détails")
                                             .font(.system(size: 15))
                                             .multilineTextAlignment(.center)
@@ -140,6 +141,9 @@ struct MatchEventView: View {
                                                         } // : ZStack
                                                         
                                                     } //: HSTACK
+                                                    
+                                                    // C'est la fin du stade
+                                                    //C'est le début des maillots
                                                     
                                                     
                                                     
@@ -249,6 +253,7 @@ struct MatchEventView: View {
                                                                 }
                                                             }) {
                                                                 Text(lineup.lineup_player)
+                                                                Text(lineup.lineup_position)
                                                                     .font(.system(size: 15))
                                                                     .foregroundColor(.white)
                                                             }
@@ -279,6 +284,7 @@ struct MatchEventView: View {
                                                             }
                                                         }) {
                                                             Text(lineup.lineup_player)
+                                                            Text(lineup.lineup_position)
                                                                 .font(.system(size: 15))
                                                                 .foregroundColor(.white)
                                                         }
@@ -443,19 +449,28 @@ struct MatchEventView: View {
 
     func findAndShowPlayerDetails(name: String) async {
         // Extraction du prénom et du nom si nécessaire
-        let player_name = name.components(separatedBy: " ").last ?? ""
-        print(player_name)
-        await playerModel.fetchDataPlayers(selectedPlayer: player_name)
+        let playerNameComponents = name.components(separatedBy: " ")
+        let lastName = playerNameComponents.last ?? ""
+        print(lastName)
+        await playerModel.fetchDataPlayers(selectedPlayer: lastName)
+
+        // Trouver le joueur qui correspond le mieux en termes de nom et de longueur de nom
+        let bestMatch = playerModel.players.first { player in
+            guard let playerLastName = player.player_name.components(separatedBy: " ").last else { return false }
+            return playerLastName.lowercased() == lastName.lowercased() && playerLastName.count == lastName.count
+        }
         
-        if let playerSelected = playerModel.players.first {
-                DispatchQueue.main.async {
-                    self.selectedPlayerDetails = playerSelected
-                    self.isDetailsPlayerViewPresented = true
-                }
+        DispatchQueue.main.async {
+            if let playerSelected = bestMatch {
+                self.selectedPlayerDetails = playerSelected
+                self.isDetailsPlayerViewPresented = true
+            } else {
+                print("Aucun joueur correspondant trouvé.")
+                // Vous pourriez vouloir gérer ce cas, par exemple, en affichant un message à l'utilisateur
             }
-    
+        }
     }
-    
+
 
     
 }//Body
