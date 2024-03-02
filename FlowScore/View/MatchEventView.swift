@@ -275,12 +275,18 @@ struct MatchEventView: View {
                                                             print("Button tapped, attempting to load player details...")
                                                             Task {
                                                                 await findAndShowPlayerDetails(name: lineup.lineup_player)
+                                                                
                                                             }
-                                                            
                                                         }) {
                                                             Text(lineup.lineup_player)
                                                                 .font(.system(size: 15))
                                                                 .foregroundColor(.white)
+                                                        }
+                                                        .sheet(isPresented: $isDetailsPlayerViewPresented) {
+                                                            // Assurez-vous que selectedPlayerDetails n'est pas nil avant d'essayer de présenter DetailsPlayerView
+                                                            if let playerDetails = selectedPlayerDetails {
+                                                                DetailsPlayerView(player: playerDetails)
+                                                            }
                                                         }
                                                         
                                                     }
@@ -342,10 +348,7 @@ struct MatchEventView: View {
                                         Text(match.match_awayteam_score)
                                             .foregroundStyle(Color.white)
                                     }//HSTACK
-                                    
-                                    
-                                    
-                                    
+                                
                                 }// VSTACK
                             }
                             .padding()
@@ -354,12 +357,14 @@ struct MatchEventView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                             .shadow(radius: 5)
                             .padding(.vertical, 10)
+                            
                         }
                     }
                 }
             }
             .frame(maxWidth: .infinity)
             .background(backgroundBlack)
+            
         }
         .task {
             await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
@@ -367,6 +372,7 @@ struct MatchEventView: View {
         .refreshable{
             await fetchData()
         }
+        
         
     }
     
@@ -435,10 +441,11 @@ struct MatchEventView: View {
         }
     } */
 
-   func findAndShowPlayerDetails(name: String) async {
+    func findAndShowPlayerDetails(name: String) async {
         // Extraction du prénom et du nom si nécessaire
-        let playerName = name.components(separatedBy: " ").last ?? ""
-        await playerModel.fetchDataPlayers(selectedPlayer: playerName)
+        let player_name = name.components(separatedBy: " ").last ?? ""
+        print(player_name)
+        await playerModel.fetchDataPlayers(selectedPlayer: player_name)
         
         if let playerSelected = playerModel.players.first {
                 DispatchQueue.main.async {
@@ -446,6 +453,7 @@ struct MatchEventView: View {
                     self.isDetailsPlayerViewPresented = true
                 }
             }
+    
     }
     
 

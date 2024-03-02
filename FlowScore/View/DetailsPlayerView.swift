@@ -17,7 +17,7 @@ struct DetailsPlayerView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(player.playerName)
+                Text(player.player_name)
                     .foregroundColor(.white)
             } // VStack
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -25,7 +25,7 @@ struct DetailsPlayerView: View {
             .edgesIgnoringSafeArea(.all)
         } // NavStack
         .task {
-            await playerModel.fetchDataPlayers(selectedPlayer: player.playerName)
+            await playerModel.fetchDataPlayers(selectedPlayer: player.player_name)
         }
     } // Body
 } // Entire View
