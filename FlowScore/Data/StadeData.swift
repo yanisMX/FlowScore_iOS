@@ -1,4 +1,14 @@
-//  MatchEventView.swift
+//
+//  StadeData.swift
+//  FlowScore
+//
+//  Created by Yanis Mohamed on 02/03/2024.
+//
+
+import Foundation
+
+
+/* //  MatchEventView.swift
 //  FlowScore
 //
 //  Created by SDV Bordeaux on 18/01/2024.
@@ -122,7 +132,7 @@ struct MatchEventView: View {
                                                                 .aspectRatio(contentMode: .fit)
                                                                 .frame(width: 30, height: 30)
                                                                 .offset(x:-10)
-                                                        } //: Zstack
+                                                        }
                                                         
                                                         Spacer()
                                                         
@@ -137,7 +147,7 @@ struct MatchEventView: View {
                                                                 .frame(width: 30, height: 30)
                                                                 .offset(x:10)
                                                             
-                                                        } // : ZStack
+                                                        }
                                                         
                                                     } //: HSTACK
                                                     
@@ -253,205 +263,144 @@ struct MatchEventView: View {
                                                                     .foregroundColor(.white)
                                                             }
                                                             
-                                                        } //VSTACK
-                                                    }//: ForEACH
-                                                    
-                                                    
-                                                }// VSTACK
-                                            
-                                            .padding(.horizontal, 10)
-                                            
-                                            VStack(alignment: .leading) {
-                                                // Affichage du nom de l'équipe à l'extérieur et de son score
-                                                Text(match.match_awayteam_name + " " + match.match_awayteam_score)
-                                                    .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_awayteam_score > match.match_hometeam_score ? .green : .red))
-                                                    .fontWeight(.bold)
-                                                    .font(.system(size: 18))
-                                                
-                                                // Affichage de la composition de l'équipe à l'extérieur
-                                                ForEach(match.lineup.away.starting_lineups) { lineup in
-                                                    VStack {
-                                                        Button(action: {
-                                                            print("Button tapped, attempting to load player details...")
-                                                            Task {
-                                                                await findAndShowPlayerDetails(name: lineup.lineup_player)
-                                                            }
-                                                            
-                                                        }) {
-                                                            Text(lineup.lineup_player)
-                                                                .font(.system(size: 15))
-                                                                .foregroundColor(.white)
                                                         }
-                                                        
                                                     }
+                                                    
                                                 }
+                                                .padding(.horizontal, 10)
                                                 
+                                                VStack(alignment: .leading) {
+                                                    // Affichage du nom de l'équipe à l'extérieur et de son score
+                                                    Text(match.match_awayteam_name + " " + match.match_awayteam_score)
+                                                        .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_awayteam_score > match.match_hometeam_score ? .green : .red))
+                                                        .fontWeight(.bold)
+                                                        .font(.system(size: 18))
+                                                    
+                                                    // Affichage de la composition de l'équipe à l'extérieur
+                                                    ForEach(match.lineup.away.starting_lineups) { lineup in
+                                                        VStack {
+                                                            Button(action: {
+                                                                
+                                                                Task {
+                                                                    await findAndShowPlayerDetails(name: lineup.lineup_player)
+                                                                }
+                                                            }) {
+                                                                Text(lineup.lineup_player)
+                                                                    .font(.system(size: 15))
+                                                                    .foregroundColor(.white)
+                                                            }
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                .padding(.horizontal, 10)
                                             }
-                                            .padding(.horizontal, 10)
-                                        }
-                                        // : HSTACK
-                                        
-                                        .foregroundColor(.white)
-                                        
-                                    }//:VSTACK
+                                            // : HSTACK
+                                            
+                                            .foregroundColor(.white)
+                                            
+                                        }//:VSTACK
                                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                                         .background(Color.black)
                                         .cornerRadius(10)
                                         .padding()
-                                             })
+                                    }) // Cette fermeture correcte termine la méthode .popover
                                     
-                                } // :VSTACK
-                            } label: {
-                                HStack {
-                                    VStack {
-                                        Text(
-                                            match.match_live == "1" ?
-                                            match.match_status + "'" :
-                                                (match.match_time < getCurrentTime() ? "Finished" : match.match_time)                                        ).foregroundStyle(Color.white)
-                                    }
                                 }
-                                VStack(alignment: .leading) {
-                                    HStack(alignment: .top) {
-                                        AsyncImage(url: URL(string: match.team_home_badge))
-                                        {
-                                            image in image.resizable()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }                                            .frame(maxWidth: 20, maxHeight: 20)
-                                        
-                                        Text(match.match_hometeam_name).foregroundStyle(Color.white)
-                                        Spacer()
-                                        Text(match.match_hometeam_score)
-                                            .foregroundStyle(Color.white)
-                                    }//HSTACK
-                                    
-                                    HStack {
-                                        
-                                        AsyncImage(url: URL(string: match.team_away_badge)) { image in
-                                            image.resizable()
-                                        } placeholder: {
-                                            ProgressView()
-                                        }
-                                        .frame(maxWidth: 20, maxHeight: 20)
-                                        
-                                        Text(match.match_awayteam_name)
-                                            .foregroundStyle(Color.white)
-                                        
-                                        Spacer()
-                                        
-                                        Text(match.match_awayteam_score)
-                                            .foregroundStyle(Color.white)
-                                    }//HSTACK
-                                    
-                                    
-                                    
-                                    
-                                }// VSTACK
                             }
-                            .padding()
-                            .cornerRadius(10)
-                            .padding(.horizontal, 20)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .shadow(radius: 5)
-                            .padding(.vertical, 10)
                         }
+                        .frame(maxWidth: .infinity)
+                        .background(backgroundBlack)
                     }
+                    .task {
+                        await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
+                    }
+                    .refreshable{
+                        await fetchData()
+                    }
+                    
                 }
-            }
-            .frame(maxWidth: .infinity)
-            .background(backgroundBlack)
-        }
-        .task {
-            await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
-        }
-        .refreshable{
-            await fetchData()
-        }
-        
-    }
-    
-    
-    func fetchData() async {
-        isLoading = true
-        await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
-        isLoading = false
-        print("Data refreshed")
-    }
-    func getCurrentTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: Date())
-    }
-    
-    /*
-    func findAndShowPlayerDetails(name: String) async {
-        // Exemple d'objet de test pour Lionel Messi
-        let testPlayerDetails = PlayersList(
-            playerKey: 123456,
-            playerId: "10",
-            playerImage: "https://link.to/messi/image.jpg",
-            playerName: "Lionel Messi",
-            playerNumber: "10",
-            playerCountry: "Argentina",
-            playerType: "Forward",
-            playerAge: "34",
-            playerBirthdate: "1987-06-24",
-            playerMatchPlayed: "5",
-            playerGoals: "4",
-            playerYellowCards: "0",
-            playerRedCards: "0",
-            playerMinutes: "450",
-            playerInjured: "No",
-            playerSubstituteOut: "0",
-            playerSubstitutesOnBench: "0",
-            playerAssists: "3",
-            playerIsCaptain: "Yes",
-            playerShotsTotal: "20",
-            playerGoalsConceded: "0",
-            playerFoulsCommitted: "1",
-            playerTackles: "2",
-            playerCrossesTotal: "10",
-            playerInterceptions: "1",
-            playerClearances: "0",
-            playerDispossesed: "5",
-            playerDuelsTotal: "30",
-            playerDuelsWon: "20",
-            playerDribbleAttempts: "15",
-            playerDribbleSucc: "10",
-            playerPenScored: "1",
-            playerPenMissed: "0",
-            playerPasses: "200",
-            playerPassesAccuracy: "90%",
-            playerKeyPasses: "10",
-            playerRating: "8.5",
-            teamName: "Paris Saint-Germain",
-            teamKey: "123"
-        )
-
-        // Simule le processus d'assignation comme si les données venaient de l'API
-        DispatchQueue.main.async {
-            self.selectedPlayerDetails = testPlayerDetails
-            self.isDetailsPlayerViewPresented = true
-        }
-    } */
-
-   func findAndShowPlayerDetails(name: String) async {
-        // Extraction du prénom et du nom si nécessaire
-        let playerName = name.components(separatedBy: " ").last ?? ""
-        await playerModel.fetchDataPlayers(selectedPlayer: playerName)
-        
-        if let playerSelected = playerModel.players.first {
-                DispatchQueue.main.async {
-                    self.selectedPlayerDetails = playerSelected
-                    self.isDetailsPlayerViewPresented = true
+                
+                
+                func fetchData() async {
+                    isLoading = true
+                    await matchesModel.fetchDataMatchs(selectedLeague: league.league_id)
+                    isLoading = false
+                    print("Data refreshed")
                 }
-            }
-    }
-    
-
-    
-}//Body
-
+                func getCurrentTime() -> String {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "HH:mm"
+                    return dateFormatter.string(from: Date())
+                }
+                func findAndShowPlayerDetails(name: String) async {
+                    // Exemple d'objet de test pour Lionel Messi
+                    let testPlayerDetails = PlayersList(
+                        playerKey: 123456,
+                        playerId: "10",
+                        playerImage: "https://link.to/messi/image.jpg",
+                        playerName: "Lionel Messi",
+                        playerNumber: "10",
+                        playerCountry: "Argentina",
+                        playerType: "Forward",
+                        playerAge: "34",
+                        playerBirthdate: "1987-06-24",
+                        playerMatchPlayed: "5",
+                        playerGoals: "4",
+                        playerYellowCards: "0",
+                        playerRedCards: "0",
+                        playerMinutes: "450",
+                        playerInjured: "No",
+                        playerSubstituteOut: "0",
+                        playerSubstitutesOnBench: "0",
+                        playerAssists: "3",
+                        playerIsCaptain: "Yes",
+                        playerShotsTotal: "20",
+                        playerGoalsConceded: "0",
+                        playerFoulsCommitted: "1",
+                        playerTackles: "2",
+                        playerCrossesTotal: "10",
+                        playerInterceptions: "1",
+                        playerClearances: "0",
+                        playerDispossesed: "5",
+                        playerDuelsTotal: "30",
+                        playerDuelsWon: "20",
+                        playerDribbleAttempts: "15",
+                        playerDribbleSucc: "10",
+                        playerPenScored: "1",
+                        playerPenMissed: "0",
+                        playerPasses: "200",
+                        playerPassesAccuracy: "90%",
+                        playerKeyPasses: "10",
+                        playerRating: "8.5",
+                        teamName: "Paris Saint-Germain",
+                        teamKey: "123"
+                    )
+                    
+                    // Simule le processus d'assignation comme si les données venaient de l'API
+                    DispatchQueue.main.async {
+                        self.selectedPlayerDetails = testPlayerDetails
+                        self.isDetailsPlayerViewPresented = true
+                    }
+                } }
+                
+                /*  func findAndShowPlayerDetails(name: String) async {
+                 // Extraction du prénom et du nom si nécessaire
+                 let playerName = name.components(separatedBy: " ").last ?? ""
+                 await playerModel.fetchDataPlayers(selectedPlayer: playerName)
+                 
+                 if let playerSelected = playerModel.players.first {
+                 DispatchQueue.main.async {
+                 self.selectedPlayerDetails = playerSelected
+                 self.isDetailsPlayerViewPresented = true
+                 }
+                 }
+                 } */
+                
+                
+                
+            
+        
 
 
 // MARK: PREVIEW
@@ -460,3 +409,4 @@ struct MatchEventView_Previews: PreviewProvider {
         MatchEventView(league: LeaguesList.previewLeagues)
     }
 }
+*/

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAA4931F2B8F9F12004869A0 /* DetailsPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4931E2B8F9F12004869A0 /* DetailsPlayerView.swift */; };
+		BAA493212B8FA100004869A0 /* DetailsPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA493202B8FA100004869A0 /* DetailsPlayerData.swift */; };
+		BAA493232B8FA12A004869A0 /* DetailsPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA493222B8FA12A004869A0 /* DetailsPlayerModel.swift */; };
 		BABAE02A2B5931A400280180 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0292B5931A400280180 /* CountryData.swift */; };
 		BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02B2B59320A00280180 /* PrincipalColor.swift */; };
 		BABAE02F2B59327E00280180 /* FontData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02E2B59327E00280180 /* FontData.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BAA4931E2B8F9F12004869A0 /* DetailsPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlayerView.swift; sourceTree = "<group>"; };
+		BAA493202B8FA100004869A0 /* DetailsPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlayerData.swift; sourceTree = "<group>"; };
+		BAA493222B8FA12A004869A0 /* DetailsPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlayerModel.swift; sourceTree = "<group>"; };
 		BABAE0292B5931A400280180 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		BABAE02B2B59320A00280180 /* PrincipalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalColor.swift; sourceTree = "<group>"; };
 		BABAE02E2B59327E00280180 /* FontData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontData.swift; sourceTree = "<group>"; };
@@ -68,6 +74,7 @@
 				BAEC6F392B581C4C00A9549A /* CountryView.swift */,
 				BABAE0302B59386A00280180 /* LeagueView.swift */,
 				BABAE03A2B596CEA00280180 /* MatchEventView.swift */,
+				BAA4931E2B8F9F12004869A0 /* DetailsPlayerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -78,6 +85,7 @@
 				BABAE0342B5957C000280180 /* CountriesModel.swift */,
 				BABAE0362B596B8700280180 /* LeagueModel.swift */,
 				BAF7CDE72B5A726200B43154 /* MatchEventsModel.swift */,
+				BAA493222B8FA12A004869A0 /* DetailsPlayerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 				BABAE02E2B59327E00280180 /* FontData.swift */,
 				BABAE0382B596BD400280180 /* LeagueData.swift */,
 				BABAE03E2B596F9100280180 /* MatchEventData.swift */,
+				BAA493202B8FA100004869A0 /* DetailsPlayerData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -220,16 +229,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BABAE0372B596B8700280180 /* LeagueModel.swift in Sources */,
+				BAA493212B8FA100004869A0 /* DetailsPlayerData.swift in Sources */,
 				BAF7CDE82B5A726200B43154 /* MatchEventsModel.swift in Sources */,
 				BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */,
 				BABAE0312B59386A00280180 /* LeagueView.swift in Sources */,
 				BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */,
+				BAA4931F2B8F9F12004869A0 /* DetailsPlayerView.swift in Sources */,
 				BABAE0352B5957C000280180 /* CountriesModel.swift in Sources */,
 				BABAE0392B596BD400280180 /* LeagueData.swift in Sources */,
 				BABAE02A2B5931A400280180 /* CountryData.swift in Sources */,
 				BABAE03F2B596F9100280180 /* MatchEventData.swift in Sources */,
 				BABAE02F2B59327E00280180 /* FontData.swift in Sources */,
 				BAEC6F382B581C4C00A9549A /* FlowScoreApp.swift in Sources */,
+				BAA493232B8FA12A004869A0 /* DetailsPlayerModel.swift in Sources */,
 				BABAE03B2B596CEA00280180 /* MatchEventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
