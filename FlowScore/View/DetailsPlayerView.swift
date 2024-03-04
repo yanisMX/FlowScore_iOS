@@ -21,8 +21,9 @@ struct DetailsPlayerView: View {
                 Text(player.player_name)
                     .foregroundColor(.white)
                     .bold()
-                    .font(Font.custom("Inspiration", size: 50))
-                    .offset(y:-300)
+                    .font(Font.custom("", size: 50))
+                    .offset(y:-90)
+                
                 if let url = URL(string: player.player_image), !player.player_image.isEmpty {
                                AsyncImage(url: url) { phase in
                                    switch phase {
@@ -31,7 +32,8 @@ struct DetailsPlayerView: View {
                                    case .success(let image):
                                        image.resizable() // Rend l'image redimensionnable.
                                             .aspectRatio(contentMode: .fit) // Conserve les proportions de l'image.
-                                            .frame(width: 300, height: 300) // Définit une taille pour l'image.
+                                            .frame(width: 250, height: 250) // Définit une taille pour l'image.
+                                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                                    case .failure:
                                        Image(systemName: "photo") // Affiche une image par défaut en cas d'échec du chargement.
                                            .foregroundColor(.gray)
@@ -45,13 +47,24 @@ struct DetailsPlayerView: View {
                                    .foregroundColor(.gray)
                            }
                 
-                
+                HStack{
+                    
+                   Text("\n")
+                    Spacer()
+                    Text("\n")
+                }
                 
                 
                 Group {
                                       DetailView(title: "Age", value: player.player_age)
                                       DetailView(title: "Date de naissance", value: player.player_birthdate)
+                                        Text("Saison actuelle")
+                                           .font(.headline)
+                                           .foregroundColor(.white)
+                                           .frame(maxWidth: .infinity, alignment: .leading)
+                                           .padding(.vertical)
                                       DetailView(title: "Buts", value: player.player_goals)
+                                      DetailView(title: "Note moyenne par match", value: player.player_rating)
                                       // Ajoutez plus de détails ici selon votre modèle
                                   }
 
@@ -85,3 +98,4 @@ struct DetailView: View {
 #Preview {
     DetailsPlayerView(player: PlayersList.previewPlayer)
 }
+

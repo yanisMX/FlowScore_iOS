@@ -29,7 +29,6 @@ struct MatchEventView: View {
                 
                 ScrollView {
                     ForEach(matchesModel.matches,id:\.match_id) {match in
-                        
                         VStack {
                             DisclosureGroup {
                                 VStack{
@@ -63,11 +62,11 @@ struct MatchEventView: View {
                                     
                                     
                                     
-                                    
+                                    Text(match.match_id).foregroundColor(.white)
                                     Button(action: {
                                         isShowingPopover = true
                                     }) {
-                                        Text(match.match_id)
+                                        Text(match.league_id)
                                         Text("Voir + de détails")
                                             .font(.system(size: 15))
                                             .multilineTextAlignment(.center)
@@ -77,233 +76,109 @@ struct MatchEventView: View {
                                             .foregroundColor(.white)
                                     }
                                     .popover(isPresented: $isShowingPopover, content: {
-                                        VStack{
-                                            ZStack {
-                                                Rectangle()
-                                                    .frame(width: 400, height: 300)
-                                                    .foregroundColor(.white)
+                                        ScrollView{
+                                            VStack{
                                                 
-                                                Rectangle()
-                                                    .frame(width: 390, height: 295)
-                                                    .foregroundColor(.green)
-                                                
-                                                Circle()
-                                                    .frame(width: 100)
-                                                    .foregroundColor(.white)
-                                                
-                                                Circle()
-                                                    .frame(width: 95)
-                                                    .foregroundColor(.green)
-                                                
-                                                Rectangle()
-                                                    .frame(width: 3, height: 300)
-                                                    .foregroundColor(.white)
-                                                
-                                                ZStack {
-                                                    HStack {
-                                                        Rectangle()
-                                                            .frame(width: 70, height: 160)
-                                                            .foregroundColor(.white)
-                                                        
-                                                        Spacer()
-                                                        
-                                                        Rectangle()
-                                                            .frame(width: 70, height: 160)
-                                                            .foregroundColor(.white)
-                                                    } //: HSTACK
-                                                    
-                                                    HStack {
-                                                        ZStack{
-                                                            Rectangle()
-                                                                .frame(width: 68, height: 157)
-                                                                .foregroundColor(.green)
-                                                            
-                                                            Image("maillotext")
-                                                                .resizable()
-                                                                .aspectRatio(contentMode: .fit)
-                                                                .frame(width: 30, height: 30)
-                                                                .offset(x:-10)
-                                                        } //: Zstack
-                                                        
-                                                        Spacer()
-                                                        
-                                                        ZStack{
-                                                            Rectangle()
-                                                                .frame(width: 68, height: 157)
-                                                                .foregroundColor(.green)
-                                                            
-                                                            Image("mailotdom")
-                                                                .resizable()
-                                                                .aspectRatio(contentMode: .fit)
-                                                                .frame(width: 30, height: 30)
-                                                                .offset(x:10)
-                                                            
-                                                        } // : ZStack
-                                                        
-                                                    } //: HSTACK
-                                                    
-                                                    // C'est la fin du stade
-                                                    //C'est le début des maillots
-                                                    
-                                                    
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("maillotext")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:-130)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("maillotext")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:-90)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("maillotext")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:-55)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("maillotext")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:-20)
-                                                    
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("mailotdom")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:130)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("mailotdom")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:90)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("mailotdom")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:55)
-                                                    
-                                                    ForEach(1..<7) { index in
-                                                        let yOffset = CGFloat(index * 50 - 175)
-                                                        
-                                                        Image("mailotdom")
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
-                                                            .frame(width: 30, height: 30)
-                                                            .offset(x: 0, y: yOffset)
-                                                    }.offset(x:20)
-                                                    
-                                                    
-                                                    
-                                                } //: ZSTACK
-                                            } //: ZSTACK
-                                            
-                                            // Code ici
-                                            HStack {
-                                                VStack(alignment: .leading) {
-                                                    // Affichage du nom de l'équipe à domicile et de son score
-                                                    Text(match.match_hometeam_name + " " +  match.match_hometeam_score)
-                                                        .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_hometeam_score > match.match_awayteam_score ? .green : .red))
-                                                        .fontWeight(.bold)
-                                                        .font(.system(size: 18))
-                                                    
-                                                    // Affichage de la composition de l'équipe à domicile
-                                                    ForEach(match.lineup.home.starting_lineups) { lineup in
-                                                        VStack {
-                                                            
-                                                            Button(action: {
-                                                                
-                                                                Task {
-                                                                    await findAndShowPlayerDetails(name: lineup.lineup_player)
-                                                                }
-                                                            }) {
-                                                                Text(lineup.lineup_player)
-                                                                Text(lineup.lineup_position)
-                                                                    .font(.system(size: 15))
-                                                                    .foregroundColor(.white)
-                                                            }
-                                                            
-                                                        } //VSTACK
-                                                    }//: ForEACH
-                                                    
-                                                    
-                                                }// VSTACK
-                                            
-                                            .padding(.horizontal, 10)
-                                            
-                                            VStack(alignment: .leading) {
-                                                // Affichage du nom de l'équipe à l'extérieur et de son score
-                                                Text(match.match_awayteam_name + " " + match.match_awayteam_score)
-                                                    .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_awayteam_score > match.match_hometeam_score ? .green : .red))
-                                                    .fontWeight(.bold)
-                                                    .font(.system(size: 18))
-                                                
-                                                // Affichage de la composition de l'équipe à l'extérieur
-                                                ForEach(match.lineup.away.starting_lineups) { lineup in
-                                                    VStack {
-                                                        Button(action: {
-                                                            print("Button tapped, attempting to load player details...")
-                                                            Task {
-                                                                await findAndShowPlayerDetails(name: lineup.lineup_player)
-                                                                
-                                                            }
-                                                        }) {
-                                                            Text(lineup.lineup_player)
-                                                            Text(lineup.lineup_position)
-                                                                .font(.system(size: 15))
-                                                                .foregroundColor(.white)
+                                                Text("Match referee : " + match.match_referee).foregroundStyle(.white)
+                                                Text("Stadium : " + match.match_stadium).foregroundStyle(.white)
+                                            }
+                                           // ici je veux un espace
+                                            VStack{
+                                                Text("Test")
+                                            }
+                                            VStack{
+                                                HStack {
+                                                    VStack(alignment: .leading) {
+                                                        HStack{
+                                                            AsyncImage(url: URL(string: match.team_home_badge))
+                                                            {
+                                                                image in image.resizable()
+                                                            } placeholder: {
+                                                                ProgressView()
+                                                            } .frame(maxWidth: 50, maxHeight: 50)
+                                                            // Affichage du nom de l'équipe à l'extérieur et de son score
+                                                            Text(match.match_hometeam_name + " " + match.match_hometeam_score)
+                                                                .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_awayteam_score > match.match_hometeam_score ? .green : .red))
+                                                                .fontWeight(.bold)
+                                                                .font(.system(size: 18))
                                                         }
-                                                        .sheet(isPresented: $isDetailsPlayerViewPresented) {
-                                                            // Assurez-vous que selectedPlayerDetails n'est pas nil avant d'essayer de présenter DetailsPlayerView
-                                                            if let playerDetails = selectedPlayerDetails {
-                                                                DetailsPlayerView(player: playerDetails)
+                                                        
+                                                        // Affichage de la composition de l'équipe à domicile
+                                                        ForEach(match.lineup.home.starting_lineups) { lineup in
+                                                            VStack {
+                                                                
+                                                                Button(action: {
+                                                                    
+                                                                    Task {
+                                                                        await findAndShowPlayerDetails(name: lineup.lineup_player)
+                                                                    }
+                                                                }) {
+                                                                    Text(lineup.lineup_player)
+                                                                    Text(lineup.lineup_number)
+                                                                        .font(.system(size: 15))
+                                                                        .foregroundColor(.white)
+                                                                }
+                                                                
+                                                            } //VSTACK
+                                                        }//: ForEACH
+                                                        
+                                                        
+                                                    }// VSTACK
+                                                    
+                                                    .padding(.horizontal, 10)
+                                                    
+                                                    VStack(alignment: .leading) {
+                                                        // Affichage du nom de l'équipe à l'extérieur et de son score
+                                                        HStack{
+                                                            Text(match.match_awayteam_score + " " + match.match_awayteam_name)
+                                                                .foregroundColor(match.match_hometeam_score == match.match_awayteam_score ? .white : (match.match_awayteam_score > match.match_hometeam_score ? .green : .red))
+                                                                .fontWeight(.bold)
+                                                                .font(.system(size: 18))
+                                                            
+                                                            AsyncImage(url: URL(string: match.team_away_badge))
+                                                            {
+                                                                image in image.resizable()
+                                                            } placeholder: {
+                                                                ProgressView()
+                                                            } .frame(maxWidth: 50, maxHeight: 50)
+                                                        }
+                                                        
+                                                        // Affichage de la composition de l'équipe à l'extérieur
+                                                        
+                                                        
+                                                        ForEach(match.lineup.away.starting_lineups) { lineup in
+                                                            VStack {
+                                                                Button(action: {
+                                                                    print("Button tapped, attempting to load player details...")
+                                                                    Task {
+                                                                        await findAndShowPlayerDetails(name: lineup.lineup_player)
+                                                                        
+                                                                    }
+                                                                }) {
+                                                                    Text(lineup.lineup_player)
+                                                                    Text(lineup.lineup_position)
+                                                                        .font(.system(size: 15))
+                                                                        .foregroundColor(.white)
+                                                                }
+                                                                .sheet(isPresented: $isDetailsPlayerViewPresented) {
+                                                                    // Assurez-vous que selectedPlayerDetails n'est pas nil avant d'essayer de présenter DetailsPlayerView
+                                                                    if let playerDetails = selectedPlayerDetails {
+                                                                        DetailsPlayerView(player: playerDetails)
+                                                                    }
+                                                                }
+                                                                
                                                             }
                                                         }
                                                         
                                                     }
                                                 }
-                                                
-                                            }
                                             .padding(.horizontal, 10)
                                         }
                                         // : HSTACK
                                         
                                         .foregroundColor(.white)
+                                            
+                                            
                                         
                                     }//:VSTACK
                                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -329,7 +204,8 @@ struct MatchEventView: View {
                                             image in image.resizable()
                                         } placeholder: {
                                             ProgressView()
-                                        }                                            .frame(maxWidth: 20, maxHeight: 20)
+                                        }                                            
+                                        .frame(maxWidth: 20, maxHeight: 20)
                                         
                                         Text(match.match_hometeam_name).foregroundStyle(Color.white)
                                         Spacer()
@@ -394,70 +270,17 @@ struct MatchEventView: View {
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: Date())
     }
-    
-    /*
-    func findAndShowPlayerDetails(name: String) async {
-        // Exemple d'objet de test pour Lionel Messi
-        let testPlayerDetails = PlayersList(
-            playerKey: 123456,
-            playerId: "10",
-            playerImage: "https://link.to/messi/image.jpg",
-            playerName: "Lionel Messi",
-            playerNumber: "10",
-            playerCountry: "Argentina",
-            playerType: "Forward",
-            playerAge: "34",
-            playerBirthdate: "1987-06-24",
-            playerMatchPlayed: "5",
-            playerGoals: "4",
-            playerYellowCards: "0",
-            playerRedCards: "0",
-            playerMinutes: "450",
-            playerInjured: "No",
-            playerSubstituteOut: "0",
-            playerSubstitutesOnBench: "0",
-            playerAssists: "3",
-            playerIsCaptain: "Yes",
-            playerShotsTotal: "20",
-            playerGoalsConceded: "0",
-            playerFoulsCommitted: "1",
-            playerTackles: "2",
-            playerCrossesTotal: "10",
-            playerInterceptions: "1",
-            playerClearances: "0",
-            playerDispossesed: "5",
-            playerDuelsTotal: "30",
-            playerDuelsWon: "20",
-            playerDribbleAttempts: "15",
-            playerDribbleSucc: "10",
-            playerPenScored: "1",
-            playerPenMissed: "0",
-            playerPasses: "200",
-            playerPassesAccuracy: "90%",
-            playerKeyPasses: "10",
-            playerRating: "8.5",
-            teamName: "Paris Saint-Germain",
-            teamKey: "123"
-        )
-
-        // Simule le processus d'assignation comme si les données venaient de l'API
-        DispatchQueue.main.async {
-            self.selectedPlayerDetails = testPlayerDetails
-            self.isDetailsPlayerViewPresented = true
-        }
-    } */
 
     func findAndShowPlayerDetails(name: String) async {
         // Extraction du prénom et du nom si nécessaire
         let playerNameComponents = name.components(separatedBy: " ")
         let lastName = playerNameComponents.last ?? ""
-        print(lastName)
         await playerModel.fetchDataPlayers(selectedPlayer: lastName)
 
         // Trouver le joueur qui correspond le mieux en termes de nom et de longueur de nom
         let bestMatch = playerModel.players.first { player in
             guard let playerLastName = player.player_name.components(separatedBy: " ").last else { return false }
-            return playerLastName.lowercased() == lastName.lowercased() && playerLastName.count == lastName.count
+            return playerLastName.lowercased() == lastName.lowercased()
         }
         
         DispatchQueue.main.async {
@@ -470,10 +293,8 @@ struct MatchEventView: View {
             }
         }
     }
-
-
     
-}//Body
+    }//Body
 
 
 

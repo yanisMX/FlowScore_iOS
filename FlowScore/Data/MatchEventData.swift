@@ -10,7 +10,7 @@ import Foundation
 struct MatchEventList: Codable, Identifiable {
     let match_id: String
     var id: String { match_id }
-   
+    
     let league_id: String
     let league_name: String
     let match_date: String
@@ -42,7 +42,7 @@ struct MatchEventList: Codable, Identifiable {
     }
     
     let lineup: Lineup
-
+    
     struct Lineup: Codable {
         let home: TeamLineup
         let away: TeamLineup
@@ -50,72 +50,83 @@ struct MatchEventList: Codable, Identifiable {
         struct TeamLineup: Codable {
             let starting_lineups: [StartingLineup]
             
-            struct StartingLineup: Codable, Identifiable {
+            struct StartingLineup: Codable, Identifiable,Hashable {
                 let id = UUID()
                 let lineup_player: String
                 let lineup_number: String
                 let lineup_position: String
             }
         }
+        
+        
+    }
+    let statistics : [Statistic]
+    struct Statistic: Codable {
+        let type: String
+        let home: String
+        let away: String
     }
 }
-
-
-
-
+    
 extension MatchEventList {
-    static let previentMatchEvent = MatchEventList(
-        match_id: "112282",
-        league_id: "277",
-        league_name: "Premier League",
-        match_date: "2023-04-05",
-        match_status: "Finished",
-        match_time: "21:00",
-        match_hometeam_id: "3081",
-        match_hometeam_name: "West Ham United",
-        match_hometeam_score: "1",
-        match_awayteam_name: "Newcastle United",
-        match_awayteam_id: "3100",
-        match_awayteam_score: "5",
-        match_live: "0",
-        match_round: "7",
-        match_stadium: "London Stadium (London)",
-        match_referee: "C. Pawson",
-        team_home_badge: "https://apiv3.apifootball.com/badges/3081_west-ham-united.jpg",
-        team_away_badge: "https://apiv3.apifootball.com/badges/3100_newcastle-united.jpg",
-        match_hometeam_system:"4-4-2",
-        match_awayteam_system:"4-3-3",
-        goalscorer:[MatchEventList.Goalscorer(time: "6", home_scorer: "OPenda", home_assist: "YAnis M", away_scorer: "", away_assist: "")],
-        lineup: MatchEventList.Lineup(
-            home: MatchEventList.Lineup.TeamLineup(
-                starting_lineups: [
-                    MatchEventList.Lineup.TeamLineup.StartingLineup(
-                        lineup_player: "Lukasz Fabianski",
-                        lineup_number: "1",
-                        lineup_position: "1"
-                    ),
-                    MatchEventList.Lineup.TeamLineup.StartingLineup(
-                        lineup_player: "Thilo Kehrer",
-                        lineup_number: "24",
-                        lineup_position: "2"
-                    )
-                ]
+        static let previentMatchEvent = MatchEventList(
+            match_id: "266091",
+            league_id: "277",
+            league_name: "Premier League",
+            match_date: "2023-04-05",
+            match_status: "Finished",
+            match_time: "21:00",
+            match_hometeam_id: "3081",
+            match_hometeam_name: "West Ham United",
+            match_hometeam_score: "1",
+            match_awayteam_name: "Newcastle United",
+            match_awayteam_id: "3100",
+            match_awayteam_score: "5",
+            match_live: "0",
+            match_round: "7",
+            match_stadium: "London Stadium (London)",
+            match_referee: "C. Pawson",
+            team_home_badge: "https://apiv3.apifootball.com/badges/3081_west-ham-united.jpg",
+            team_away_badge: "https://apiv3.apifootball.com/badges/3100_newcastle-united.jpg",
+            match_hometeam_system:"4-4-2",
+            match_awayteam_system:"4-3-3",
+            goalscorer:[MatchEventList.Goalscorer(time: "6", home_scorer: "OPenda", home_assist: "YAnis M", away_scorer: "", away_assist: "")],
+            lineup: MatchEventList.Lineup(
+                home: MatchEventList.Lineup.TeamLineup(
+                    starting_lineups: [
+                        MatchEventList.Lineup.TeamLineup.StartingLineup(
+                            lineup_player: "Lukasz Fabianski",
+                            lineup_number: "1",
+                            lineup_position: "1"
+                        ),
+                        MatchEventList.Lineup.TeamLineup.StartingLineup(
+                            lineup_player: "Thilo Kehrer",
+                            lineup_number: "24",
+                            lineup_position: "2"
+                        )
+                    ]
                 ),
-            away: MatchEventList.Lineup.TeamLineup(
-                starting_lineups: [
-                    MatchEventList.Lineup.TeamLineup.StartingLineup(
-                        lineup_player: "Lukasz Fabianski",
-                        lineup_number: "1",
-                        lineup_position: "1"
-                    ),
-                    MatchEventList.Lineup.TeamLineup.StartingLineup(
-                        lineup_player: "Thilo Kehrer",
-                        lineup_number: "24",
-                        lineup_position: "2"
-                    )
-                ]            
-            )
+                away: MatchEventList.Lineup.TeamLineup(
+                    starting_lineups: [
+                        MatchEventList.Lineup.TeamLineup.StartingLineup(
+                            lineup_player: "Lukasz Fabianski",
+                            lineup_number: "1",
+                            lineup_position: "1"
+                        ),
+                        MatchEventList.Lineup.TeamLineup.StartingLineup(
+                            lineup_player: "Thilo Kehrer",
+                            lineup_number: "24",
+                            lineup_position: "2"
+                        )
+                    ]
+                )
+            ),
+            statistics: [
+                Statistic(type: "Ball Possession", home: "42%", away: "58%"),
+                Statistic(type: "Shots on Goal", home: "4", away: "7")
+                // Ajoutez d'autres statistiques ici...
+            ]
+            
         )
-    )
-}
-
+    }
+    

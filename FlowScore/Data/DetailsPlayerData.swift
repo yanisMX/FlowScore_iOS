@@ -47,6 +47,7 @@ struct PlayersList: Codable {
     let player_rating: String
     let team_name: String
     let team_key: String
+    
 }
 
 
