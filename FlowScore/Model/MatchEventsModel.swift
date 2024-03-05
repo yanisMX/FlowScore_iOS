@@ -20,7 +20,7 @@ class MatchEventsModel: ObservableObject {
         let currentDate = format.string(from: Date())
         
         
-        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_events&from=\(currentDate)&to=\(currentDate)&league_id=\(leagueId)&APIkey=\(URLkey)") else {
+        guard let url = URL(string: "https://apiv3.apifootball.com/?action=get_events&from=2024-03-04&to=\(currentDate)&league_id=\(leagueId)&APIkey=\(URLkey)") else {
             print("URL invalid")
             return
         }
@@ -47,5 +47,7 @@ class MatchEventsModel: ObservableObject {
             print("Network Request error: \(error)")
         }
     }//:func
+    
+    
 }
 

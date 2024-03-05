@@ -27,18 +27,14 @@ struct LeagueView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(country.country_name)
-                    .font(Font.custom("Jomhuria", size:50))
-                    .foregroundColor(.white)
-                    .offset(y:-275)
-                
+                //Header
                 Text("Select Leagues")
                     .font(Font.custom("Inspiration", size: 50))
                     .foregroundColor(.white)
                 
                 TextField("Search league", text: $searchLeague)
                     .padding(10)
-                    .background(Color(.systemGray6))
+                    .background(Color(.white))
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .offset(y:-10)
             ScrollView {

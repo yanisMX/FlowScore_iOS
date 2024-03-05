@@ -17,12 +17,12 @@ struct DetailsPlayerView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
+            
                 Text(player.player_name)
                     .foregroundColor(.white)
                     .bold()
                     .font(Font.custom("", size: 50))
-                    .offset(y:-90)
+                    .offset(y:-10)
                 
                 if let url = URL(string: player.player_image), !player.player_image.isEmpty {
                                AsyncImage(url: url) { phase in
@@ -35,37 +35,39 @@ struct DetailsPlayerView: View {
                                             .frame(width: 250, height: 250) // Définit une taille pour l'image.
                                             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                                    case .failure:
-                                       Image(systemName: "photo") // Affiche une image par défaut en cas d'échec du chargement.
-                                           .foregroundColor(.gray)
-                                           .frame(width: 300, height: 300) 
+                                       Image("profile") // Affiche une image par défaut en cas d'échec du chargement.
+                                           .aspectRatio(contentMode: .fit) // Conserve les proportions de l'image.
+                                           .frame(width: 350, height: 350) // Définit une taille pour l'image.
+                                           .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                           
                                    @unknown default:
                                        EmptyView() // Gère les cas inconnus.
                                    }
                                }
                            } else {
-                               Image(systemName: "photo") // Affiche une image par défaut si l'URL est vide ou invalide.
-                                   .foregroundColor(.gray)
+                               Image("profile") // Affiche une image par défaut en cas d'échec du chargement.
+                                   .aspectRatio(contentMode: .fit) // Conserve les proportions de l'image.
+                                   .frame(width: 350, height: 350) // Définit une taille pour l'image.
+                                   .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                            }
                 
-                HStack{
-                    
-                   Text("\n")
-                    Spacer()
-                    Text("\n")
-                }
-                
+               
                 
                 Group {
                                       DetailView(title: "Age", value: player.player_age)
-                                      DetailView(title: "Date de naissance", value: player.player_birthdate)
-                                        Text("Saison actuelle")
+                                      DetailView(title: "Birthday", value: player.player_birthdate)
+                                      DetailView(title: "Position", value: player.player_type)
+                                        Text("Saison")
                                            .font(.headline)
                                            .foregroundColor(.white)
                                            .frame(maxWidth: .infinity, alignment: .leading)
                                            .padding(.vertical)
-                                      DetailView(title: "Buts", value: player.player_goals)
-                                      DetailView(title: "Note moyenne par match", value: player.player_rating)
-                                      // Ajoutez plus de détails ici selon votre modèle
+                                           .padding(.leading, 16)
+                                      DetailView(title: "Goals", value: player.player_goals)
+                                      DetailView(title: "Average mark per match", value: player.player_rating)
+                                      DetailView(title: "Team", value: player.team_name)
+                                      DetailView(title: "Match played", value: player.player_match_played)
+                                      DetailView(title: "Minutes played", value: player.player_minutes)
                                   }
 
             } // VStack
@@ -92,6 +94,8 @@ struct DetailView: View {
                 .foregroundColor(.white)
             Spacer()
         }
+        .padding(.leading, 16)
+        
     }
 }
 // Preview

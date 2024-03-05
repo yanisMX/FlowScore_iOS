@@ -61,7 +61,8 @@ struct MatchEventList: Codable, Identifiable {
         
     }
     let statistics : [Statistic]
-    struct Statistic: Codable {
+    struct Statistic: Codable,Identifiable {
+        let id = UUID()
         let type: String
         let home: String
         let away: String
@@ -71,7 +72,7 @@ struct MatchEventList: Codable, Identifiable {
 extension MatchEventList {
         static let previentMatchEvent = MatchEventList(
             match_id: "266091",
-            league_id: "277",
+            league_id: "164",
             league_name: "Premier League",
             match_date: "2023-04-05",
             match_status: "Finished",

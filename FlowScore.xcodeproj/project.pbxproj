@@ -11,7 +11,6 @@
 		BAA493212B8FA100004869A0 /* DetailsPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA493202B8FA100004869A0 /* DetailsPlayerData.swift */; };
 		BAA493232B8FA12A004869A0 /* DetailsPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA493222B8FA12A004869A0 /* DetailsPlayerModel.swift */; };
 		BABAE02A2B5931A400280180 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0292B5931A400280180 /* CountryData.swift */; };
-		BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02B2B59320A00280180 /* PrincipalColor.swift */; };
 		BABAE02F2B59327E00280180 /* FontData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE02E2B59327E00280180 /* FontData.swift */; };
 		BABAE0312B59386A00280180 /* LeagueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0302B59386A00280180 /* LeagueView.swift */; };
 		BABAE0352B5957C000280180 /* CountriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAE0342B5957C000280180 /* CountriesModel.swift */; };
@@ -35,7 +34,6 @@
 		BAA493202B8FA100004869A0 /* DetailsPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlayerData.swift; sourceTree = "<group>"; };
 		BAA493222B8FA12A004869A0 /* DetailsPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPlayerModel.swift; sourceTree = "<group>"; };
 		BABAE0292B5931A400280180 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
-		BABAE02B2B59320A00280180 /* PrincipalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalColor.swift; sourceTree = "<group>"; };
 		BABAE02E2B59327E00280180 /* FontData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontData.swift; sourceTree = "<group>"; };
 		BABAE0302B59386A00280180 /* LeagueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueView.swift; sourceTree = "<group>"; };
 		BABAE0342B5957C000280180 /* CountriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesModel.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				BABAE0292B5931A400280180 /* CountryData.swift */,
-				BABAE02B2B59320A00280180 /* PrincipalColor.swift */,
 				BABAE02E2B59327E00280180 /* FontData.swift */,
 				BABAE0382B596BD400280180 /* LeagueData.swift */,
 				BABAE03E2B596F9100280180 /* MatchEventData.swift */,
@@ -231,7 +228,6 @@
 				BABAE0372B596B8700280180 /* LeagueModel.swift in Sources */,
 				BAA493212B8FA100004869A0 /* DetailsPlayerData.swift in Sources */,
 				BAF7CDE82B5A726200B43154 /* MatchEventsModel.swift in Sources */,
-				BABAE02C2B59320A00280180 /* PrincipalColor.swift in Sources */,
 				BABAE0312B59386A00280180 /* LeagueView.swift in Sources */,
 				BAEC6F3A2B581C4C00A9549A /* CountryView.swift in Sources */,
 				BAA4931F2B8F9F12004869A0 /* DetailsPlayerView.swift in Sources */,
@@ -369,10 +365,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlowScore/FlowScore.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowScore/Preview Content\"";
-				DEVELOPMENT_TEAM = 2NFRQ77G7R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -394,6 +392,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = yanis.FlowScore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -408,10 +407,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FlowScore/FlowScore.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FlowScore/Preview Content\"";
-				DEVELOPMENT_TEAM = 2NFRQ77G7R;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +434,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = yanis.FlowScore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

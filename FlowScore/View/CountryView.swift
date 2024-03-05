@@ -15,6 +15,7 @@ struct CountriesView: View {
     @State var searchCountry = ""
     @State var selectedCountry = ""
     @State var isOn = false
+    @StateObject var matchEventsModel = MatchEventsModel()
     let columns: [GridItem] = [
             GridItem(.flexible(), spacing: 16),
             GridItem(.flexible(), spacing: 16)
@@ -28,17 +29,17 @@ struct CountriesView: View {
     var body: some View {
             NavigationStack {
                 VStack{
-                
+                // Header
                 Text("Select Country")
                     .font(Font.custom("Inspiration", size: 50))
                     .foregroundColor(.white)
                     
                     TextField("Search country", text: $searchCountry)
                         .padding(10)
-                        .background(Color(.systemGray6))
+                        .background(Color(.white))
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                         .offset(y:-10)
-                
+                //Liste pays
                 ScrollView{
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(countriesModel.countries.filter{
@@ -60,7 +61,7 @@ struct CountriesView: View {
                                     .offset(y: -20)
                                 
                                 
-                                
+                                //Bouton select country
                                 NavigationLink(destination: LeagueView(country:country)){
                                     Text("Select")
                                         .font(Font.custom("Katibeh", size: 25))
